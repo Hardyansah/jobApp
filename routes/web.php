@@ -11,7 +11,16 @@
 |
  */
 
-Route::get('/', function () {return view('users.detail');});
+Route::get('/', function () {return view('auth.register');});
 Auth::routes();
-Route::get('welcome', 'StaticsController@welcome')->name('welcome');
 Route::get('/home', 'HomeController@index')->name('home');
+Route::resource('users', 'UsersController');
+Route::resource('details', 'DetailsController');
+Route::group(['middleware' => ['auth', 'role:admin']],
+    function () {
+        Route::resource('admin', 'AdminController');
+    });
+Route::group(['middleware' => ['auth', 'role:user']],
+    function () {
+        Route::resource('user', 'UsersController');
+    });

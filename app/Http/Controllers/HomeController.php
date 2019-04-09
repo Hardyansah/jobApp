@@ -27,7 +27,7 @@ class HomeController extends Controller
 
         //     return redirect('user')->with('status', 'Login Success');
         // } else {
-        return view('home');
+        return view('users.create');
         //}
     }
 }

@@ -6,12 +6,16 @@
             <center>Detail Informasi</center>
         </h3>
 
-        <form action="#" method="POST" enctype="multipart/form-data">
+        <form action="{{route('details.store')}}" method="POST" enctype="multipart/form-data">
             {{csrf_field()}}
 
             <div class="form-group">
+                <input type="hidden" name="user_id" id="user_id" class="input" value="1">
+            </div>
+
+            <div class="form-group">
                 <label for="name" class="label">Nama</label>
-                <input type="name" name="name" id="title" autofocus="true" class="form-control">
+                <input type="name" name="name" id="name" autofocus="true" class="form-control" value="">
                 <div class="text-danger">{!! $errors->first('name')!!}</div>
 
                 <div class="clear"></div>

@@ -4,9 +4,12 @@
 <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 <div class="container">
     <div class="row">
-        <div class="col-md-8 col-md-offset-2">
+        <div class="col-md-5 col-md-offset-3">
             <div class="panel panel-default">
-                <div class="panel-heading">Register</div>
+                <div class="panel-heading text-center">
+                    <h3>Tingkatkan produktivitas Anda </h3><br/>
+                    <h5>Mulai-GRATIS</h5>
+                </div>
 
                 <div class="panel-body">
                     <form class="form-horizontal" method="POST" action="{{ route('register') }}">
@@ -16,7 +19,7 @@
                             <label for="name" class="col-md-4 control-label">Name</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>                                @if ($errors->has('name'))
+                                <input id="name" type="text" class="form-control" name="name" required autofocus> @if ($errors->has('name'))
                                 <span class="help-block">
                                         <strong>{{ $errors->first('name') }}</strong>
                                     </span> @endif
@@ -27,7 +30,7 @@
                             <label for="email" class="col-md-4 control-label">E-Mail Address</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>                                @if ($errors->has('email'))
+                                <input id="email" type="email" class="form-control" name="email" required> @if ($errors->has('email'))
                                 <span class="help-block">
                                         <strong>{{ $errors->first('email') }}</strong>
                                     </span> @endif
@@ -60,10 +63,15 @@
                                 <input id="age" type="date" class="form-control" name="age" required>
                             </div>
                         </div>
+                        <div class="col-md-8 col-md-offset-2 text-center">
+                            <p>Dengan mengklik Bergabung sekarang, Anda menyetujui Perjanjian Pengguna, Kebijakan Privasi, dan
+                                Kebijakan Cookie CingkedIh.</p>
+                        </div>
                         <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Register
+                            <div class="col-md-8 col-md-offset-2">
+
+                                <button type="submit" class="btn btn-primary btn-lg btn-block">
+                                    Bergabung Sekarang 
                                 </button>
                             </div>
                         </div>

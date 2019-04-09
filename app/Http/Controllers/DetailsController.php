@@ -2,17 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\User;
+use App\Detail;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
 use Redirect;
 use Session;
+use Validator;
 
-class UsersController extends Controller
+class DetailsController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
     /**
      * Display a listing of the resource.
      *
@@ -20,8 +18,7 @@ class UsersController extends Controller
      */
     public function index()
     {
-        $users = User::all();
-        return view('users.create')->with('users', $users);
+        //
     }
 
     /**
@@ -31,7 +28,7 @@ class UsersController extends Controller
      */
     public function create()
     {
-        return view('users.create');
+        //
     }
 
     /**
@@ -42,8 +39,33 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
-        $users = User::find($id);
-        return view('users.create');
+        $pdf = new Detail;
+        $validate = Validator::make($request->all(), Detail::valid());
+        if ($validate->fails()) {
+            return Redirect::to('users/create' . $request->user_id)->withErrors($validate)->withInput();
+
+        } else {
+
+            // upload the image //
+            $file = $request->file('file');
+            //dd($file);
+            $destination_path = 'uploads/';
+            $filename = str_random(6) . '_' . $file->getClientOriginalName();
+            $file->move($destination_path, $filename);
+
+            // save image data into database //
+            $pdf->file = $destination_path . $filename;
+            $pdf->user_id = $request->input('user_id');
+            $pdf->alamat = $request->input('alamat');
+            $pdf->kota = $request->input('kota');
+            $pdf->agama = $request->input('agama');
+            $pdf->save();
+
+            Detail::create($request->all());
+            Session::flash("notice", "Users success created");
+            return Redirect::to('users/create' . $request->user_id);
+            //return redirect()->route("users.index");
+        }
     }
 
     /**
@@ -54,9 +76,8 @@ class UsersController extends Controller
      */
     public function show($id)
     {
-        $users = User::find($id);
-        // $details = User::find($id)->details->sortBy('details.created_at');
-        return view('users.create')->with('users', $users);
+        // $users = User::find($id);
+        // return view('users.detail')->with('users', $users);
     }
 
     /**
@@ -79,9 +100,7 @@ class UsersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $users = User::find($id);
-        Session::flash("notice", "Article success updated");
-        return redirect()->route("users.index", $id);
+        //
     }
 
     /**
