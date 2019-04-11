@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
+use Illuminate\Http\Request;
+
 class HomeController extends Controller
 {
     /**
@@ -19,15 +22,17 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        // if ($request->user()->hasRole('admin')) {
-        //     return redirect('admin')->with('status', 'Login success');
-        // } elseif ($request->user()->hasRole('user')) {
 
-        //     return redirect('user')->with('status', 'Login Success');
-        // } else {
-        return view('users.create');
-        //}
+        if ($request->user()->hasRole('admin')) {
+            return redirect('admin')->with('status', 'Login Admin success');
+        } elseif ($request->user()->hasRole('user')) {
+            //return redirect('users')->with('status', 'Login Success');
+            return redirect()->action('UsersController@index', [$request->user()->id]);
+        } else {
+            return redirect()->action('UsersController@index', [$request->user()->id]);
+            //return view('users.index');
+        }
     }
 }

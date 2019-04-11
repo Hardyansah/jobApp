@@ -11,7 +11,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>@yield('title')</title>
-
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/sticky-footer-navbar/">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Bootstrap core CSS -->
@@ -34,6 +34,7 @@
         }
     </style>
     <!-- Custom styles for this template -->
+
     <link href="{{asset('css/custom.css')}}" rel="stylesheet">
 </head>
 
@@ -48,12 +49,7 @@
     </button>
             <div class="collapse navbar-collapse " id="navbarCollapse ">
                 <ul class="navbar-nav mr-auto ">
-                    <li class="nav-item ">
-                        <a class="nav-link " href="/home ">Home <span class="sr-only ">(current)</span></a>
-                    </li>
-                    <li class="nav-item ">
-                        <a class="nav-link " href="#">Detail User</a>
-                    </li>
+
                 </ul>
 
 
@@ -64,7 +60,8 @@
                     <p> </p>
                     <a href="{{ route( 'register') }} " class="btn btn-secondary ">Register</a> @else
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
+                        <a href="#" class="dropdown-toggle text-white" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true"
+                            v-pre>
                                 {{ Auth::user()->name }} <span class="caret"></span>
                               </a>
 
@@ -85,6 +82,17 @@
             </div>
         </nav>
     </header>
+    <!-- Sidebar -->
+    <div class="w3-sidebar w3-bar-block w3-animate-left" style="display:none;z-index:5" id="mySidebar">
+        <br/>
+        <br/>
+        <br/>
+        <button class="w3-bar-item w3-button w3-large" onclick="w3_close()">JobAPP &times;</button>
+        <a href="{{route('admin.index')}}" class="w3-bar-item w3-button">Dashboard</a>
+        <a href="{{route('admin.create')}}" class="w3-bar-item w3-button">Kelola User</a>
+        <a href="#" class="w3-bar-item w3-button">Kelola CV</a>
+        <a href="#" class="w3-bar-item w3-button">Lowongan</a>
+    </div>
 
     <!-- Begin page content -->
     <main role="main " class="flex-shrink-0 ">
@@ -108,7 +116,17 @@
     </footer>
 
 
-
+    <script>
+        function w3_open() {
+          document.getElementById("mySidebar").style.display = "block";
+          document.getElementById("myOverlay").style.display = "block";
+        }
+        
+        function w3_close() {
+          document.getElementById("mySidebar").style.display = "none";
+          document.getElementById("myOverlay").style.display = "none";
+        }
+    </script>
     <script src="{{ asset( 'js/app.js') }} "></script>
     <script src="{{ asset( 'js/custom.js') }} "></script>
     <script>

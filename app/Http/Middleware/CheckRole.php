@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App\User;
 use Closure;
 
 class CheckRole
@@ -13,9 +14,9 @@ class CheckRole
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next)
+    public function handle($request, Closure $next, ...$role)
     {
-        if (!$request->user()->hasRole($role)) {
+        if (!$request->user()->authorizeRoles($role)) {
             abort(401, 'This Action is unauthorized.');
         }
         return $next($request);

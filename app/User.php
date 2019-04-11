@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Role;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
@@ -15,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'tgl_lahir',
+        'name', 'email', 'password', 'age', 'status',
     ];
 
     /**
@@ -27,9 +28,9 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function details()
+    public function detail()
     {
-        return $this->hasMany('App\Detail', 'detail_id');
+        return $this->hasMany('App\Detail', 'user_id');
     }
 
     public function roles()
@@ -47,7 +48,7 @@ class User extends Authenticatable
 
     public function hasAnyRole($role)
     {
-        return null !== $this->roles()->whereIn('name', $roles)->first();
+        return null !== $this->roles()->whereIn('name', $role)->first();
     }
 
     public function hasRole($role)
