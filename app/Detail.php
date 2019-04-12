@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Detail extends Model
 {
     protected $fillable = [
-        'user_id', 'file', 'alamat', 'kota', 'agama', 'jk', 'sekolah', 'jurusan', 'alamat_sekolah', 'poto',
+        'user_id', 'file', 'alamat', 'kota', 'agama', 'jk', 'sekolah', 'jurusan', 'alamat_sekolah', 'poto', 'status_cv',
     ];
 
     public static function valid()

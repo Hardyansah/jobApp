@@ -19,30 +19,24 @@
                 </tr>
             </thead>
             <tbody>
-
-                {{--
-                <td>aaaaaa</td>
-                <td>aaaaaa</td>
-                <td>aaaaaa</td>
-                <td>aaaaaa</td>
-                <td>aaaaaa</td>
-                <td>aaaaaa</td> --}} @foreach($users as $user)
+                @foreach($users as $user) {{-- @foreach($details as $detail ) --}}
                 <tr>
                     <td>{!!$user->name!!}</td>
                     <td>{!!$user->email!!}</td>
                     <td>{!!$user->age!!}</td>
                     <td>
-                        <form method="POST" action="#" class="form-horizontal" role="form">
+                        <form method="POST" action="{{route('admin.destroy', $user->id)}}" class="form-horizontal" role="form">
                             {{csrf_field()}}{{method_field('DELETE')}}
-                            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal">
+                            <a href="{{route('admin.show', $user->id)}}" class="btn btn-warning">show</a> {{-- <button type="button"
+                                class="btn btn-warning" data-toggle="modal" data-target="#myModal">
                                Show
-                              </button>
+                              </button> --}}
                             <a href="#" class="btn btn-primary"> Edit</a>
                             <input type="submit" value="Delete" class="btn btn-danger">
                         </form>
                     </td>
                 </tr>
-                @endforeach
+                {{-- @endforeach --}} @endforeach
             </tbody>
         </table>
     </div>
@@ -61,7 +55,8 @@
 
             <!-- Modal body -->
             <div class="modal-body">
-    @include('admin.show')
+                {{-- <a href="{{route('admin.show', $user->id)}}" class="btn btn-info">tampilkan</a> --}}
+
             </div>
             <!-- Modal footer -->
             <div class="modal-footer">

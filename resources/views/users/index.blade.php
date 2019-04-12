@@ -41,7 +41,13 @@
                                 </div>
                                 <div class="media-right">
                                     <p class="text-right text-muted">
-                                        <span class="label label-success">Accept</span>
+                                        <div class="alert alert-secondary">
+                                            <strong> @foreach ($details as $detail) 
+                                                            {{$detail->status_cv}}
+                                                        @endforeach</strong>                                            You should <a href="#" class="alert-link">read this message</a>.
+                                        </div>
+
+
                                     </p>
                                 </div>
 

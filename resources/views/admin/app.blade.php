@@ -90,7 +90,7 @@
         <button class="w3-bar-item w3-button w3-large" onclick="w3_close()">JobAPP &times;</button>
         <a href="{{route('admin.index')}}" class="w3-bar-item w3-button">Dashboard</a>
         <a href="{{route('admin.create')}}" class="w3-bar-item w3-button">Kelola User</a>
-        <a href="#" class="w3-bar-item w3-button">Kelola CV</a>
+        <a href="{{route('cv.index')}}" class="w3-bar-item w3-button">Kelola CV</a>
         <a href="#" class="w3-bar-item w3-button">Lowongan</a>
     </div>
 

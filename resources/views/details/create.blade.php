@@ -83,10 +83,10 @@
 
                         <div class="form-group">
                             <label for="jk" class="label">Jenis Kelamin</label>
-                            <select name="jk" class="form-control">
+                            <select name="jk" class="form-control" value="Unread">
                                         <option value="Laki-laki">Laki-laki</option>
                                         <option value="Perempuan">Perempuan</option>
-                                    </select>
+                            </select>
                             <div class="text-danger">{!! $errors->first('jk')!!}</div>
                             <div class="clear"></div>
                         </div>
