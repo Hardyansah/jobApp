@@ -22,4 +22,5 @@ Route::group(['middleware' => ['auth', 'role:admin']],
 Route::resource('details', 'DetailsController');
 Route::get('users/{users}', 'UsersController@index')->name('users');
 Route::post('users', 'UsersController@store')->name('users.store');
+Route::post('users/{users}/edit', 'UsersController@update')->name('users.update');
 Auth::routes();

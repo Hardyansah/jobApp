@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Detail;
 use App\User;
+use DB;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
 use Session;
 
 class AdminController extends Controller
@@ -16,7 +18,20 @@ class AdminController extends Controller
     }
     public function index()
     {
-        return view('admin.index');
+        $action = Input::get('action', 'none');
+
+        if ($action == "Accept") {
+            //dd($action);
+            $users = DB::table('users')->join('details', 'user_id', 'details.user_id')->where('details.status_cv', '=', 1)->paginate(10);
+            //dd($users);
+            return view('admin.index')->with('users', $users)->render();
+        } elseif ($action == "Reject") {
+            $users = DB::table('users')->join('details', 'user_id', 'details.user_id')->where('details.status_cv', '=', 2)->paginate(10);
+            return view('admin.index')->with('users', $users);
+        } else {
+            $users = DB::table('users')->join('details', 'user_id', 'details.user_id')->where('details.status_cv', '=', 0)->paginate(10);
+            return view('admin.index')->with('users', $users);
+        }
     }
 
     public function create(Request $request)
@@ -42,6 +57,14 @@ class AdminController extends Controller
     {
         Detail::create($request->all());
         return redirect()->route("admin.cv", $request->user_id);
+    }
+
+    public function edit($id)
+    {
+        $users = User::find($id);
+        $details = User::find($id)->detail;
+        return view('admin.edit')->with('users', $users)->with('details', $details);
+
     }
 
     public function destroy($id)

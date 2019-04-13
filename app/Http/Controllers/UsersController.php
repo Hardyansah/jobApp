@@ -118,6 +118,7 @@ class UsersController extends Controller
     public function edit($id)
     {
         $currentUser = User::find($id);
+        //dd($currentUser);
         return view('details.edit')->with('currentUser', $currentUser);
     }
 
@@ -130,6 +131,8 @@ class UsersController extends Controller
      */
     public function update(Request $request, $id)
     {
+        // $currentUser = User::find($id);
+
         $users = User::find($id);
         $user = User::find($request->user_id);
         // if user choose a file, replace the old one //
@@ -139,6 +142,13 @@ class UsersController extends Controller
             $filename = str_random(6) . '_' . $file->getClientOriginalName();
             $file->move($destination_path, $filename);
             $users->poto = $destination_path . $filename;
+        }
+        if ($request->hasFile('file')) {
+            $file = $request->file('file');
+            $destination_path = 'uploads/';
+            $filename = str_random(6) . '_' . $file->getClientOriginalName();
+            $file->move($destination_path, $filename);
+            $users->file = $destination_path . $filename;
         }
         // replace old data with new data from the submitted form //
         $users->file = $request->input('file');
@@ -155,12 +165,12 @@ class UsersController extends Controller
 
         //dd($request->user_id);
 
-        $user->no_telp = $request->input('name');
-        $user->jk = $request->input('email');
+        $user->name = $request->input('name');
+        $user->email = $request->input('email');
         $user->age = $request->input('age');
         $user->save();
 
-        return Redirect('home');
+        return Redirect('users.create');
     }
 
     /**
