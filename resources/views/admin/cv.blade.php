@@ -46,6 +46,9 @@
                     <td>
                         <a href="{{asset($detaill ->file)}}" class="btn btn-success"> Download CV</a>
                     </td>
+                    <td>
+                        <a href="{{asset($detaill ->file)}}" class="btn btn-success"> Download CV</a>
+                    </td>
                 </tr>
                 @endforeach @endforeach
             </tbody>

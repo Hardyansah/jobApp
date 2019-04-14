@@ -32,6 +32,7 @@
                             <div class="clear"></div>
                         </div>
 
+<<<<<<< HEAD
                         <div class="form-group">
                             <label for="age" class="label">Tanggal Lahir</label>
                             <input type="date" name="age" id="age" class="form-control" value="{{$users->age}}">
@@ -40,6 +41,8 @@
                             <div class="clear"></div>
                         </div>
 
+=======
+>>>>>>> a1e7126f1e5aa6392ba533b6a454d6d31ce11503
                     </div>
                 </div>
 
@@ -65,7 +68,11 @@
 
                         <div class="form-group ">
                             <label for="exampleFormControlTextarea1 " class="label ">Alamat</label>
+<<<<<<< HEAD
                             <textarea name="alamat" id="alamat " cols="20 " rows="10 " class="form-control ">{{$detail->alamat}}</textarea>
+=======
+                            <textarea name="alamat " id="alamat " cols="20 " rows="10 " class="form-control ">{{$detail->alamat}}</textarea>
+>>>>>>> a1e7126f1e5aa6392ba533b6a454d6d31ce11503
                             <div class="text-danger">{!! $errors->first('alamat')!!}</div>
                             <div class="clear"></div>
 
@@ -84,7 +91,11 @@
                         <div class="field ">
                             <label for="agama " class="label ">Agama</label>
                             <div class="control ">
+<<<<<<< HEAD
                                 <input type="text " name="agama" id="agama " autofocus="true " class="form-control" value="{{$detail->agama}}">
+=======
+                                <input type="text " name="agama " id="agama " autofocus="true " class="form-control" value="{{$detail->agama}}">
+>>>>>>> a1e7126f1e5aa6392ba533b6a454d6d31ce11503
                                 <div class="text-danger">{!! $errors->first('agama')!!}</div>
                             </div>
                             <div class="clear"></div>
@@ -101,9 +112,15 @@
                         </div>
 
                         <div class="field ">
+<<<<<<< HEAD
                             <label for="no_telp" class="label ">Nomor HP</label>
                             <div class="control ">
                                 <input type="text" name="no_telp" id="no_telp" autofocus="true" class="form-control" value="{{$detail->no_telp}}">
+=======
+                            <label for="no_telp " class="label ">Nomor HP</label>
+                            <div class="control ">
+                                <input type="text " name="no_telp " id="no_telp " autofocus="true " class="form-control" value="{{$detail->no_telp}}">
+>>>>>>> a1e7126f1e5aa6392ba533b6a454d6d31ce11503
                                 <div class="text-danger">{!! $errors->first('no_telp')!!}</div>
                             </div>
                             <div class="clear"></div>
@@ -121,7 +138,11 @@
                         <div class="field ">
                             <label for="jurusan " class="label ">Jurusan</label>
                             <div class="control ">
+<<<<<<< HEAD
                                 <input type="text " name="jurusan" id="jurusan " autofocus="true " class="form-control" value="{{$detail->jurusan}}">
+=======
+                                <input type="text " name="jurusan " id="jurusan " autofocus="true " class="form-control" value="{{$detail->jurusan}}">
+>>>>>>> a1e7126f1e5aa6392ba533b6a454d6d31ce11503
                                 <div class="text-danger">{!! $errors->first('jurusan')!!}</div>
                             </div>
                             <div class="clear"></div>
@@ -138,8 +159,13 @@
                         @endforeach
 
                         <br/>
+<<<<<<< HEAD
                         <button type="submit" class="btn btn-primary ">save</button>
                         <a href="{{route('admin.create')}}" class="btn btn-primary "> back</a><br/>
+=======
+                        <button type="submit " class="btn btn-primary ">save</button>
+                        <a href="# " class="btn btn-primary "> back</a><br/>
+>>>>>>> a1e7126f1e5aa6392ba533b6a454d6d31ce11503
 
                     </div>
                 </div>
