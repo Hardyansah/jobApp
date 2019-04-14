@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Detail;
 use App\User;
-use DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use Session;
@@ -20,20 +19,21 @@ class AdminController extends Controller
     {
         $action = Input::get('action', 'none');
 
-        if ($action == "Accept") {
+        if ($action == "unread") {
             //dd($action);
-            $users = DB::table('users')->join('details', 'user_id', 'details.user_id')->where('details.status_cv', '=', 1)->paginate(10);
-            //dd($users);
+            $users = User::Where('status_cv', '0')->get();
             return view('admin.index')->with('users', $users)->render();
-        } elseif ($action == "Reject") {
-            $users = DB::table('users')->join('details', 'user_id', 'details.user_id')->where('details.status_cv', '=', 2)->paginate(10);
-            return view('admin.index')->with('users', $users);
+        } elseif ($action == "accept") {
+            $users = User::Where('status_cv', '1')->get();
+            return view('admin.index')->with('users', $users)->render();
+        } elseif ($action == "reject") {
+            $users = User::Where('status_cv', '2')->get();
+            return view('admin.index')->with('users', $users)->render();
         } else {
-            $users = DB::table('users')->join('details', 'user_id', 'details.user_id')->where('details.status_cv', '=', 0)->paginate(10);
+            $users = User::all();
             return view('admin.index')->with('users', $users);
         }
     }
-
     public function create(Request $request)
     {
         $users = User::all();

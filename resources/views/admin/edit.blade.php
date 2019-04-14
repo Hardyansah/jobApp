@@ -32,6 +32,14 @@
                             <div class="clear"></div>
                         </div>
 
+                        <div class="form-group">
+                            <label for="age" class="label">Tanggal Lahir</label>
+                            <input type="date" name="age" id="age" class="form-control" value="{{$users->age}}">
+                            <div class="text-danger">{!! $errors->first('age')!!}</div>
+
+                            <div class="clear"></div>
+                        </div>
+
                     </div>
                 </div>
 
@@ -57,7 +65,7 @@
 
                         <div class="form-group ">
                             <label for="exampleFormControlTextarea1 " class="label ">Alamat</label>
-                            <textarea name="alamat " id="alamat " cols="20 " rows="10 " class="form-control ">{{$detail->alamat}}</textarea>
+                            <textarea name="alamat" id="alamat " cols="20 " rows="10 " class="form-control ">{{$detail->alamat}}</textarea>
                             <div class="text-danger">{!! $errors->first('alamat')!!}</div>
                             <div class="clear"></div>
 
@@ -76,7 +84,7 @@
                         <div class="field ">
                             <label for="agama " class="label ">Agama</label>
                             <div class="control ">
-                                <input type="text " name="agama " id="agama " autofocus="true " class="form-control" value="{{$detail->agama}}">
+                                <input type="text " name="agama" id="agama " autofocus="true " class="form-control" value="{{$detail->agama}}">
                                 <div class="text-danger">{!! $errors->first('agama')!!}</div>
                             </div>
                             <div class="clear"></div>
@@ -93,9 +101,9 @@
                         </div>
 
                         <div class="field ">
-                            <label for="no_telp " class="label ">Nomor HP</label>
+                            <label for="no_telp" class="label ">Nomor HP</label>
                             <div class="control ">
-                                <input type="text " name="no_telp " id="no_telp " autofocus="true " class="form-control" value="{{$detail->no_telp}}">
+                                <input type="text" name="no_telp" id="no_telp" autofocus="true" class="form-control" value="{{$detail->no_telp}}">
                                 <div class="text-danger">{!! $errors->first('no_telp')!!}</div>
                             </div>
                             <div class="clear"></div>
@@ -113,7 +121,7 @@
                         <div class="field ">
                             <label for="jurusan " class="label ">Jurusan</label>
                             <div class="control ">
-                                <input type="text " name="jurusan " id="jurusan " autofocus="true " class="form-control" value="{{$detail->jurusan}}">
+                                <input type="text " name="jurusan" id="jurusan " autofocus="true " class="form-control" value="{{$detail->jurusan}}">
                                 <div class="text-danger">{!! $errors->first('jurusan')!!}</div>
                             </div>
                             <div class="clear"></div>
@@ -130,8 +138,8 @@
                         @endforeach
 
                         <br/>
-                        <button type="submit " class="btn btn-primary ">save</button>
-                        <a href="# " class="btn btn-primary "> back</a><br/>
+                        <button type="submit" class="btn btn-primary ">save</button>
+                        <a href="{{route('admin.create')}}" class="btn btn-primary "> back</a><br/>
 
                     </div>
                 </div>

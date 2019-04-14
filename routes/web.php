@@ -18,6 +18,9 @@ Route::group(['middleware' => ['auth', 'role:admin']],
     function () {
         Route::resource('admin', 'AdminController');
         Route::resource('cv', 'CvController');
+        Route::get('statuscv', 'StatusCvController@index')->name('statuscv');
+        Route::get('statuscvaccept/{user}', 'StatusCvController@statuscvaccept')->name('statuscvaccept');
+        Route::get('statuscvreject/{user}', 'StatusCvController@statuscvreject')->name('statuscvreject');
     });
 Route::resource('details', 'DetailsController');
 Route::get('users/{users}', 'UsersController@index')->name('users');

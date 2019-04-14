@@ -12,9 +12,9 @@
         <h2>Data Informasi Pelamar</h2>
         <form action="{{route('admin.index')}}">
             <div class="btn-group pull-right">
-                <button type="submit" class="btn btn-primary" name="action" value="Unread">Unread</button>
-                <button type="submit" class="btn btn-primary" name="action" value="Accept">Accept</button>
-                <button type="submit" class="btn btn-primary" name="action" value="Reject">Reject</button>
+                <button type="submit" class="btn btn-secondary" name="action" value="unread">Unread</button>
+                <button type="submit" class="btn btn-success" name="action" value="accept">Accept</button>
+                <button type="submit" class="btn btn-danger" name="action" value="reject">Reject</button>
             </div>
         </form>
         <div>
@@ -23,9 +23,7 @@
                     <tr>
                         <th>No</th>
                         <th>Nama</th>
-                        <th>CV</th>
-                        <th>Status</th>
-                        <th>Action </th>
+                        <th>Status CV</th>
                     </tr>
                 </thead>
 
@@ -36,10 +34,10 @@
                     <tr>
                         <td>{{ $no }}</td>
                         <td>{!!$user->name!!}</td>
-                        <td>{!!$user->age!!}</td>
-                        <td>Status</td>
-                        <td>Action </td>
+                        <td>@if ($user->status_cv == 0) Unread @elseif ($user->status_cv == 1) Accepted @elseif ($user->status_cv
+                            == 2) Rejected @endif
 
+                        </td>
                     </tr>
                     @endforeach
                 </tbody>

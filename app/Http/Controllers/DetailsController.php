@@ -86,7 +86,7 @@ class DetailsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $currentUser = User::find($id);
+        $currentUser = User::find($id)->detail->first();
 
         //$users = User::find($id);
         $user = User::find($request->user_id);
@@ -125,7 +125,7 @@ class DetailsController extends Controller
         $user->age = $request->input('age');
         $user->save();
 
-        return Redirect('users.create');
+        return Redirect('home');
     }
 
     /**

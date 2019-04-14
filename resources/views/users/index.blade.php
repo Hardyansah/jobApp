@@ -40,11 +40,11 @@
                                 </div>
                                 <div class="media-right">
                                     <p class="text-right text-muted">
-                                        @foreach ($details as $detail) @if ($detail->status_cv == 0)
+                                        @if ($currentUser->status_cv == 0)
                                         <div class="alert alert-secondary"><strong>Unread </strong></div>
-                                        @elseif ($detail->status_cv == 1)
+                                        @elseif ($currentUser->status_cv == 1)
                                         <button class="alert alert-success"><strong>Accepted </strong> </button> @else
-                                        <button class="alert alert-danger"><strong>Rejected</strong> You should <a href="#" class="alert-link" data-toggle="modal" data-target="#myModal">read this message</a>.</button>                                        @endif @endforeach
+                                        <button class="alert alert-danger"><strong>Rejected</strong> You should <a href="#" class="alert-link" data-toggle="modal" data-target="#myModal">read this message</a>.</button>                                        @endif
                                     </p>
                                 </div>
 

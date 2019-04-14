@@ -28,15 +28,20 @@
                     <td>{!!$user->name!!}</td>
                     <td>{!!$detaill ->file!!}</td>
                     <td>
-                        <form action="{{route('cv.store', $user->id)}}" method="POST">
-                            {{csrf_field()}}
-                            <select name="status_cv" class="btn btn-warning">
-                                    <option value="0">Unread</option>
-                                    <option value="1">Accept</option>
-                                    <option value="2">Reject</option>
-                            </select>
-                            <input type="submit" class="btn btn-dark" value="Send">
-                        </form>
+                        <div class="dropdown">
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                    @if ($user->status_cv == 0)
+                                    <div class="btn btn-secondary"><strong>Unread </strong></div>
+                                    @elseif ($user->status_cv == 1)
+                                    <div class="btn btn-success"><strong>Accepted </strong> </div>                            @elseif ($user->status_cv == 2)
+                            <div class="btn btn-danger"><strong>Rejected</strong> </div>                            @endif
+
+                            </button>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="{{route('statuscvaccept', $user->id)}}">Accepted</a>
+                                <a class="dropdown-item" href="{{route('statuscvreject', $user->id)}}">Rejected</a>
+                            </div>
+                        </div>
                     </td>
                     <td>
                         <a href="{{asset($detaill ->file)}}" class="btn btn-success"> Download CV</a>

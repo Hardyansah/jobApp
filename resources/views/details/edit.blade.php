@@ -32,6 +32,13 @@
                             <div class="clear"></div>
                         </div>
 
+                        <div class="form-group">
+                            <label for="age" class="label">Tanggal Lahir</label>
+                            <input type="date" name="age" id="age" class="form-control" value="{{$currentUser->age}}">
+                            <div class="text-danger">{!! $errors->first('age')!!}</div>
+
+                            <div class="clear"></div>
+                        </div>
                     </div>
                 </div>
 

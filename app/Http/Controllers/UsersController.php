@@ -24,7 +24,7 @@ class UsersController extends Controller
         //$currentUser = $request->user_id;
         //dd($currentUser);
         $currentUser = User::find($id);
-        $details = User::with('detail')->find($id)->detail;
+        $details = User::find($id)->detail;
         //dd($details);
         if ($currentUser->status == 0) {
             return view('details.create')->with('currentUser', $currentUser)->with('details', $details);
@@ -133,7 +133,7 @@ class UsersController extends Controller
     {
         // $currentUser = User::find($id);
 
-        $users = User::find($id);
+        $users = User::find($id)->detail->first();
         $user = User::find($request->user_id);
         // if user choose a file, replace the old one //
         if ($request->hasFile('poto')) {
@@ -151,7 +151,7 @@ class UsersController extends Controller
             $users->file = $destination_path . $filename;
         }
         // replace old data with new data from the submitted form //
-        $users->file = $request->input('file');
+
         $users->user_id = $request->input('user_id');
         $users->alamat = $request->input('alamat');
         $users->kota = $request->input('kota');
@@ -170,7 +170,7 @@ class UsersController extends Controller
         $user->age = $request->input('age');
         $user->save();
 
-        return Redirect('users.create');
+        return Redirect('admin/create');
     }
 
     /**
