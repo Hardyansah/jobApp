@@ -41,7 +41,26 @@ class CvController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        if ($request->status_cv == 0) {
+            $users = Detail::all();
+            //$users = User::with('detail')->find($request->id)->detail;
+            //$users = Detail::find($request->user_id);
+            dd($users);
+            $users->status_cv = 0;
+            $users->save();
+            return redirect('admin.cv');
+        } elseif ($request->status_cv == 1) {
+            $users = Detail::find($request->id);
+            $users->status_cv = 1;
+            $users->save();
+            return redirect('admin.cv');
+        } else {
+            $users = Detail::find($request->id);
+            $users->status_cv = 2;
+            $users->save();
+            return redirect('admin.cv');
+        }
+
     }
 
     /**
@@ -75,7 +94,12 @@ class CvController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        //$users = User::find($id);
+        $user = Detail::find($request->user_id);
+        $user->status_cv = $request->input('status_cv');
+        $user->save();
+
+        return Redirect('admin.cv');
     }
 
     /**

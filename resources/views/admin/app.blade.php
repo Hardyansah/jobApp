@@ -16,6 +16,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Bootstrap core CSS -->
     <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
+    <!-- Jquery -->
+    <script type="text/javascript" language="javascript" src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+
+    <!-- Jquery DataTables -->
+    <script type="text/javascript" language="javascript" src="http:////cdn.datatables.net/1.10.4/js/jquery.dataTables.min.js"></script>
+    <!-- Bootstrap dataTables Javascript -->
+    <script type="text/javascript" language="javascript" src="http://cdn.datatables.net/plug-ins/9dcbecd42ad/integration/bootstrap/3/dataTables.bootstrap.js"></script>
 
     <style>
         .bd-placeholder-img {
@@ -36,6 +43,13 @@
     <!-- Custom styles for this template -->
 
     <link href="{{asset('css/custom.css')}}" rel="stylesheet">
+
+    <!-- Panggil Fungsi -->
+    <script type="text/javascript" charset="utf-8">
+        $(document).ready(function() {
+ $('.table-paginate').dataTable();
+ } );
+    </script>
 </head>
 
 <body class="d-flex flex-column h-100">
@@ -91,7 +105,7 @@
         <a href="{{route('admin.index')}}" class="w3-bar-item w3-button">Dashboard</a>
         <a href="{{route('admin.create')}}" class="w3-bar-item w3-button">Kelola User</a>
         <a href="{{route('cv.index')}}" class="w3-bar-item w3-button">Kelola CV</a>
-        <a href="#" class="w3-bar-item w3-button">Lowongan</a>
+
     </div>
 
     <!-- Begin page content -->
@@ -133,7 +147,6 @@
         window.jQuery || document.write('<script src="/docs/4.3/assets/js/vendor/jquery-slim.min.js "><\//script>')
     </script>
     <script src="js/bootstrap.bundle.min.js "></script>
-
 </body>
 
 </html>
