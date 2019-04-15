@@ -1,7 +1,9 @@
 @extends("admin.app") 
 @section("content")
 
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 <!-- Page Content -->
 <div class="w3-overlay w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" id="myOverlay"></div>
 
@@ -30,21 +32,19 @@
                     <td>
                         <div class="dropdown">
                             <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                                    @if ($user->status_cv == 0)
-                                    <div class="btn btn-secondary"><strong>Unread </strong></div>
+                                   @if ($user->status_cv == 0)
+                                        <div class="btn btn-secondary"><strong>Unread </strong></div>
                                     @elseif ($user->status_cv == 1)
-                                    <div class="btn btn-success"><strong>Accepted </strong> </div>                            @elseif ($user->status_cv == 2)
-                            <div class="btn btn-danger"><strong>Rejected</strong> </div>                            @endif
-
+                                        <div class="btn btn-success"><strong>Accepted </strong> </div>                            
+                                    @elseif ($user->status_cv == 2)
+                                        <div class="btn btn-danger"><strong>Rejected</strong> </div>                            
+                                    @endif  
                             </button>
                             <div class="dropdown-menu">
                                 <a class="dropdown-item" href="{{route('statuscvaccept', $user->id)}}">Accepted</a>
                                 <a class="dropdown-item" href="{{route('statuscvreject', $user->id)}}">Rejected</a>
                             </div>
                         </div>
-                    </td>
-                    <td>
-                        <a href="{{asset($detaill ->file)}}" class="btn btn-success"> Download CV</a>
                     </td>
                     <td>
                         <a href="{{asset($detaill ->file)}}" class="btn btn-success"> Download CV</a>

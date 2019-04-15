@@ -133,6 +133,7 @@
         window.jQuery || document.write('<script src="/docs/4.3/assets/js/vendor/jquery-slim.min.js "><\//script>')
     </script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <script src="{{ asset( 'js//bootstrap.min.js')}}"></script>
 </body>
 
 </html>

@@ -46,15 +46,16 @@
                     <div class="card-header py-4">
                         @foreach ($details as $detail)
                         <div class="form-group">
-                            <label for="file" class="file">Upload CV</label>
-                            <input type="file" name="file" id="file" autofocus="true" class="form-control-file border" value="{{$detail->file}}">
+
+                            <input type="hidden" name="file" id="file" autofocus="true" class="form-control-file border" value="{{$detail->file}}">
                             <div class="text-danger">{!! $errors->first('file')!!}</div>
 
                             <div class="clear"></div>
                         </div>
 
                         <div class="form-group">
-                            <label for="poto" class="poto">Foto Data Diri</label>
+                            <label for="poto" class="poto">Foto Data Diri</label><br/>
+                            <img src="{{ asset($detail->poto)}}" style="width:150px;height:190px;">
                             <input type="file" name="poto" id="poto" autofocus="true" class="form-control-file border" value="{{$detail->poto}}">
                             <div class="text-danger">{!! $errors->first('poto')!!}</div>
 

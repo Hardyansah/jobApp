@@ -18,7 +18,6 @@
                     <label for="name" class="label">Nama</label>
                     <input type="name" name="name" id="name" class="form-control" value="{{$users->name}}" disabled>
                     <div class="text-danger">{!! $errors->first('name')!!}</div>
-<<<<<<< HEAD
 
                     <div class="clear"></div>
                 </div>
@@ -27,22 +26,14 @@
                     <label for="email" class="label">E-mail</label>
                     <input type="text" name="email" id="email" class="form-control" value="{{$users->email}}" disabled>
                     <div class="text-danger">{!! $errors->first('email')!!}</div>
-=======
->>>>>>> a1e7126f1e5aa6392ba533b6a454d6d31ce11503
 
                     <div class="clear"></div>
                 </div>
 
                 <div class="form-group">
-<<<<<<< HEAD
                     <label for="age" class="label">Tanggal Lahir</label>
                     <input type="date" name="age" id="age" class="form-control" value="{{$users->age}}" disabled>
                     <div class="text-danger">{!! $errors->first('age')!!}</div>
-=======
-                    <label for="email" class="label">E-mail</label>
-                    <input type="text" name="email" id="email" class="form-control" value="{{$users->email}}" disabled>
-                    <div class="text-danger">{!! $errors->first('email')!!}</div>
->>>>>>> a1e7126f1e5aa6392ba533b6a454d6d31ce11503
 
                     <div class="clear"></div>
                 </div>

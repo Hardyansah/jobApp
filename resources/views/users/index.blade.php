@@ -14,6 +14,14 @@
         padding: 10px 0px;
     }
 </style>
+
+<div class="pull-right text-white-50">
+    <a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">x</a>
+
+    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+        {{ csrf_field() }}
+    </form>
+</div>
 <div class="container">
     <div class="card shadow mb-2">
         <div class="card-header py-4">
@@ -40,19 +48,11 @@
                                 </div>
                                 <div class="media-right">
                                     <p class="text-right text-muted">
-<<<<<<< HEAD
                                         @if ($currentUser->status_cv == 0)
                                         <div class="alert alert-secondary"><strong>Unread </strong></div>
                                         @elseif ($currentUser->status_cv == 1)
                                         <button class="alert alert-success"><strong>Accepted </strong> </button> @else
                                         <button class="alert alert-danger"><strong>Rejected</strong> You should <a href="#" class="alert-link" data-toggle="modal" data-target="#myModal">read this message</a>.</button>                                        @endif
-=======
-                                        @foreach ($details as $detail) @if ($detail->status_cv == 0)
-                                        <div class="alert alert-secondary"><strong>Unread </strong></div>
-                                        @elseif ($detail->status_cv == 1)
-                                        <button class="alert alert-success"><strong>Accepted </strong> </button> @else
-                                        <button class="alert alert-danger"><strong>Rejected</strong> You should <a href="#" class="alert-link" data-toggle="modal" data-target="#myModal">read this message</a>.</button>                                        @endif @endforeach
->>>>>>> a1e7126f1e5aa6392ba533b6a454d6d31ce11503
                                     </p>
                                 </div>
 
